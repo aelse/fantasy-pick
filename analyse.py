@@ -92,17 +92,59 @@ def analyse():
     # As we're interested in the most points per cost, we can strip
     # out players that score less points than others at the same cost,
     # bearing in mind max number of players to purchase in a position.
+    # It is possible that higher scorers would not be eligible in a
+    # particular team due to max 3 from same side, thus opening the
+    # door to lower scorers, but we choose to ignore this as a
+    # compromise.
     keepers     = cull_low_scorers(keepers, 2)
     defenders   = cull_low_scorers(defenders, 5)
     midfielders = cull_low_scorers(midfielders, 5)
     forwards    = cull_low_scorers(forwards, 3)
 
     new_total_players = len(keepers) + len(defenders) + len(midfielders) + len(forwards)
-
     print 'Retained %d total players of original %d' % (new_total_players,
     total_players)
 
-    #print forwards
+
+    # Seed the generator with our pre-selected keepers
+    keepers = [Player("Vorm", "SWA", 5.5, 158),Player("Foster", "WBA", 5.0, 140)]
+
+
+    # Generate all combinations for each position
+    c_defenders   = list(nchoosek(defenders, 5))
+    c_midfielders = list(nchoosek(midfielders, 5))
+    c_forwards    = list(nchoosek(forwards, 3))
+
+    print 'Picking from %d defender, %d midfielder and %d forward choices' % (len(c_defenders), len(c_midfielders), len(c_forwards))
+
+    budget = 100.0
+    keeper_points = sum(map(lambda x: x.points, keepers))
+    keeper_cost   = sum(map(lambda x: x.cost, keepers))
+
+    best_team        = None
+    best_team_cost   = 0.0
+    best_team_points = 0
+
+    f_count = 0
+    f_total = len(c_forwards)
+
+    for f in c_forwards:
+        f_count += 1
+        print 'Round %d/%d' % (f_count, f_total)
+        for m in c_midfielders:
+            for d in c_defenders:
+                ps = PlayerSet(f + m + d + keepers)
+                #print '%d + %d + %d + %d = %d' % (sum(map(lambda x: x.cost, f)), sum(map(lambda x: x.cost, m)), sum(map(lambda x: x.cost, d)), keeper_cost, ps.cost)
+                #print 'Considering %s' % ps
+                if ps.cost < budget:
+                    if ps.points > best_team_points:
+                        best_team = ps
+                        best_team_points = ps.points
+                        best_team_cost = ps.cost
+                        print '==============\nNew best team. Cost %f, points %d' % (best_team_cost, best_team_points)
+                        print best_team
+                #else: print '%f > %f' % (ps.cost, budget)
+
 
 if __name__ == '__main__':
     analyse()
