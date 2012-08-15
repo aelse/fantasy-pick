@@ -1,5 +1,14 @@
 import sys, re
 
+class PlayerSet(object):
+    def __init__(self, player_list):
+        self.player_list = player_list
+        self.cost = sum(map(lambda x: x.cost, player_list))
+        self.points = sum(map(lambda x: x.points, player_list))
+
+    def __repr__(self):
+        return 'PlayerSet([' + ', '.join(map(repr, self.player_list)) + '])'
+
 class Player(object):
 
     def __init__(self, name, team, cost, points):
