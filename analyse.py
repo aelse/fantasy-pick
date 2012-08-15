@@ -72,6 +72,13 @@ def cull_low_scorers(players, limit):
     print 'Stripped %d players' % (num_before - num_after)
     return culled_list
 
+def nchoosek(items, n):
+    if n==0:
+        yield []
+    else:
+        for (i, item) in enumerate(items):
+            for cc in nchoosek(items[i+1:],n-1):
+                yield [item]+cc
 
 def analyse():
     keepers     = get_players('goalkeepers')
