@@ -97,9 +97,11 @@ def analyse():
     # door to lower scorers, but we choose to ignore this as a
     # compromise.
     keepers     = cull_low_scorers(keepers, 2)
-    defenders   = cull_low_scorers(defenders, 5)
-    midfielders = cull_low_scorers(midfielders, 5)
-    forwards    = cull_low_scorers(forwards, 3)
+    #defenders   = cull_low_scorers(defenders, 5)
+    #midfielders = cull_low_scorers(midfielders, 5)
+    defenders   = cull_low_scorers(defenders, 3)
+    midfielders = cull_low_scorers(midfielders, 2)
+    #forwards    = cull_low_scorers(forwards, 3)
 
     new_total_players = len(keepers) + len(defenders) + len(midfielders) + len(forwards)
     print 'Retained %d total players of original %d' % (new_total_players,
@@ -107,13 +109,41 @@ def analyse():
 
 
     # Seed the generator with our pre-selected keepers
-    keepers = [Player("Vorm", "SWA", 5.5, 158),Player("Foster", "WBA", 5.0, 140)]
+    #keepers = [Player("Vorm", "SWA", 5.5, 158), Player("Federici", "RDG", 4.5, 0)]
+    keepers = [Player("Vorm", "SWA", 5.5, 158), Player("Al-Habsi", "WIG", 5.0, 138)]
 
 
     # Generate all combinations for each position
     c_defenders   = list(nchoosek(defenders, 5))
     c_midfielders = list(nchoosek(midfielders, 5))
     c_forwards    = list(nchoosek(forwards, 3))
+
+    print '%d defender, %d midfielder and %d forward combinations' % (len(c_defenders), len(c_midfielders), len(c_forwards))
+
+    # Constraint - require some specific players
+    #required = [Player("Van Persie", "ARS", 13.0, 269), Player("Cisse", "NEW", 9.5, 105), Player("Le Fondre", "RDG", 5.0, 0)]
+    required = [Player("Aguero", "MCI", 11.5, 211), Player("Cisse",
+        "NEW", 9.5, 105)]
+    #, Player("Le Fondre", "RDG", 5.0, 0)]
+    for p in required:
+        c_forwards = filter(lambda x: p in x, c_forwards)
+
+    #required = [Player("Sinclair", "SWA", 7.0, 151)]
+    required = [Player("Sinclair", "SWA", 7.0, 151),
+        Player("Moses", "WIG", 7.0, 140), Player("Walters", "STO", 6.5, 140)]
+    for p in required:
+        c_midfielders = filter(lambda x: p in x, c_midfielders)
+
+    required = [Player("Simpson", "NEW", 5.0, 117)]
+    for p in required:
+        c_defenders = filter(lambda x: p in x, c_defenders)
+
+    print 'Position constraints applied. %d defender, %d midfielder and %d forward combinations remain' % (len(c_defenders), len(c_midfielders), len(c_forwards))
+
+    # Constraint - limit amount we can spend in total on a position
+    c_forwards = filter(lambda x: sum(map(lambda y: y.cost, x)) <= 30, c_forwards)
+    c_defenders = filter(lambda x: sum(map(lambda y: y.cost, x)) <= 35, c_defenders)
+    print 'Price constraints applied. %d defender, %d midfielder and %d forward combinations remain' % (len(c_defenders), len(c_midfielders), len(c_forwards))
 
     print 'Picking from %d defender, %d midfielder and %d forward choices' % (len(c_defenders), len(c_midfielders), len(c_forwards))
 
@@ -136,7 +166,7 @@ def analyse():
                 ps = PlayerSet(f + m + d + keepers)
                 #print '%d + %d + %d + %d = %d' % (sum(map(lambda x: x.cost, f)), sum(map(lambda x: x.cost, m)), sum(map(lambda x: x.cost, d)), keeper_cost, ps.cost)
                 #print 'Considering %s' % ps
-                if ps.cost < budget:
+                if ps.cost <= budget:
                     if ps.points > best_team_points:
                         best_team = ps
                         best_team_points = ps.points
