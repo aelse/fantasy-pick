@@ -1,4 +1,5 @@
 import sys, re
+from multiprocessing import Pool
 
 class PlayerSet(object):
     def __init__(self, player_list):
@@ -158,22 +159,38 @@ def analyse():
     f_count = 0
     f_total = len(c_forwards)
 
+    pool = Pool(processes=4)
+
     for f in c_forwards:
         f_count += 1
         print 'Round %d/%d' % (f_count, f_total)
-        for m in c_midfielders:
-            for d in c_defenders:
-                ps = PlayerSet(f + m + d + keepers)
-                #print '%d + %d + %d + %d = %d' % (sum(map(lambda x: x.cost, f)), sum(map(lambda x: x.cost, m)), sum(map(lambda x: x.cost, d)), keeper_cost, ps.cost)
-                #print 'Considering %s' % ps
-                if ps.cost <= budget:
-                    if ps.points > best_team_points:
-                        best_team = ps
-                        best_team_points = ps.points
-                        best_team_cost = ps.cost
-                        print '==============\nNew best team. Cost %f, points %d' % (best_team_cost, best_team_points)
-                        print best_team
-                #else: print '%f > %f' % (ps.cost, budget)
+        fixed = f + keepers
+        h = map(lambda x: {'fixed':fixed + x, 'defenders':c_defenders}, c_midfielders)
+        results = pool.map(best_combo, h)
+        for ps in results:
+            if ps and ps.points > best_team_points:
+                best_team = ps
+                best_team_points = ps.points
+                best_team_cost = ps.cost
+                print '==============\nNew best team. Cost %f, points %d' % (best_team_cost, best_team_points)
+                print best_team
+    print '==============\nFinal best team. Cost %f, points %d' % (best_team_cost, best_team_points)
+    print best_team
+
+def best_combo(h):
+    fixed_members = h['fixed']
+    defenders = h['defenders']
+
+    best_team = None
+    best_team_points = 0
+    budget = 100.0
+    for d in defenders:
+        ps = PlayerSet(fixed_members + d)
+        if ps.cost <= budget and ps.points > best_team_points:
+            best_team = ps
+            best_team_points = ps.points
+        #else: print '%f > %f' % (ps.cost, budget)
+    return best_team
 
 
 if __name__ == '__main__':
