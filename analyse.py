@@ -187,8 +187,15 @@ def best_combo(h):
     for d in defenders:
         ps = PlayerSet(fixed_members + d)
         if ps.cost <= budget and ps.points > best_team_points:
-            best_team = ps
-            best_team_points = ps.points
+            # Ensure no more than 3 players from any team
+            teams = {}
+            for player in ps.player_list:
+                try: teams[player.team] += 1
+                except KeyError: teams[player.team] = 1
+            too_many_players = len(filter(lambda x: x> 3, teams.values()))
+            if not too_many_players:
+                best_team = ps
+                best_team_points = ps.points
         #else: print '%f > %f' % (ps.cost, budget)
     return best_team
 
