@@ -26,14 +26,14 @@ class Player(object):
 
     def __repr__(self):
         return 'Player("%s", "%s", %.1f, %d)' % (self.name, self.team,
-            self.cost, self.points)
+                                                 self.cost, self.points)
 
     def __str__(self):
         return self.name
 
     def __eq__(self, other):
         return (self.name == other.name and self.team == other.team and
-            self.cost == other.cost and self.points == other.points)
+                self.cost == other.cost and self.points == other.points)
 
 
 def parse_player_record(record):
@@ -73,7 +73,7 @@ def cull_low_scorers(players, limit):
     culled_list = []
     for cost in sorted(h.keys(), reverse=True):
         sorted_by_points = sorted(h[cost],
-            key=lambda x: x.points, reverse=True)
+                                  key=lambda x: x.points, reverse=True)
         culled_list = culled_list + sorted_by_points[:limit]
     num_after = len(culled_list)
     print 'Stripped %d players' % (num_before - num_after)
@@ -114,7 +114,7 @@ def analyse():
 
     new_total_players = len(keepers + defenders + midfielders + forwards)
     print 'Retained %d total players of original %d' % (new_total_players,
-        total_players)
+                                                        total_players)
 
     # Seed the generator with our pre-selected keepers
     #keepers = [Player("Vorm", "SWA", 5.5, 158), Player("Federici", "RDG", 4.5, 0)]
@@ -129,30 +129,42 @@ def analyse():
         len(c_defenders), len(c_midfielders), len(c_forwards))
 
     # Constraint - require some specific players
-    #required = [Player("Van Persie", "ARS", 13.0, 269), Player("Cisse", "NEW", 9.5, 105), Player("Le Fondre", "RDG", 5.0, 0)]
-    required = [Player("Aguero", "MCI", 11.5, 211), Player("Cisse",
-        "NEW", 9.5, 105)]
-    #, Player("Le Fondre", "RDG", 5.0, 0)]
+    #required = [Player("Van Persie", "ARS", 13.0, 269),
+    #             Player("Cisse", "NEW", 9.5, 105),
+    #             Player("Le Fondre", "RDG", 5.0, 0)]
+    #required = [Player("Aguero", "MCI", 11.5, 211),
+    #             Player("Cisse", "NEW", 9.5, 105)]
+    #required = [Player("Cisse", "NEW", 9.5, 105),
+    required = [Player("Le Fondre", "RDG", 5.0, 0),
+                Player("Tevez", "MCI", 9.2, 146)]
     for p in required:
         c_forwards = filter(lambda x: p in x, c_forwards)
 
     #required = [Player("Sinclair", "SWA", 7.0, 151)]
-    required = [Player("Sinclair", "SWA", 7.0, 151),
-        Player("Moses", "WIG", 7.0, 140), Player("Walters", "STO", 6.5, 140)]
+    required = [Player("Dyer", "SWA", 5.6, 122),
+                Player("Michu", "SWA", 6.7, 150),
+                Player("Hazard", "CHE", 9.6, 150)
+                ]
     for p in required:
         c_midfielders = filter(lambda x: p in x, c_midfielders)
 
     required = [Player("Simpson", "NEW", 5.0, 117)]
+    required = []
     for p in required:
         c_defenders = filter(lambda x: p in x, c_defenders)
 
-    print 'Position constraints applied. %d defender, %d midfielder and %d forward combinations remain' % (len(c_defenders), len(c_midfielders), len(c_forwards))
+    print 'Position constraints applied. %d defender, %d ' \
+          'midfielder and %d forward combinations remain' % (
+          len(c_defenders), len(c_midfielders), len(c_forwards))
 
     # Constraint - limit amount we can spend in total on a position
-    c_forwards = filter(lambda x: sum(map(lambda y: y.cost, x)) <= 30, c_forwards)
-    c_defenders = filter(lambda x: sum(map(lambda y: y.cost, x)) <= 35, c_defenders)
-    print 'Price constraints applied. %d defender, %d midfielder and %d forward combinations remain' % (
-        len(c_defenders), len(c_midfielders), len(c_forwards))
+    c_forwards = filter(lambda x: sum(map(lambda y: y.cost, x)) <= 30,
+                        c_forwards)
+    c_defenders = filter(lambda x: sum(map(lambda y: y.cost, x)) <= 35,
+                         c_defenders)
+    print 'Price constraints applied. %d defender, %d midfielder ' \
+          'and %d forward combinations remain' % (
+          len(c_defenders), len(c_midfielders), len(c_forwards))
 
     print 'Picking from %d defender, %d midfielder and %d forward choices' % (
         len(c_defenders), len(c_midfielders), len(c_forwards))
