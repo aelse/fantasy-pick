@@ -67,7 +67,7 @@ def cull_low_scorers(players, limit):
     num_before = len(players)
     h = {}
     for player in players:
-        if player.cost in h:
+        if player.cost not in h:
             h[player.cost] = []
         h[player.cost].append(player)
     culled_list = []
