@@ -80,6 +80,14 @@ def cull_low_scorers(players, limit):
     return culled_list
 
 
+def cull_score_below(players, min_score):
+    culled_list = []
+    for player in players:
+        if player.points >= min_score:
+            culled_list.append(player)
+    return culled_list
+
+
 def nchoosek(items, n):
     if n == 0:
         yield []
@@ -105,20 +113,32 @@ def analyse():
     # particular team due to max 3 from same side, thus opening the
     # door to lower scorers, but we choose to ignore this as a
     # compromise.
+    print 'Culling low scorers at same price'
     keepers = cull_low_scorers(keepers, 2)
     #defenders = cull_low_scorers(defenders, 5)
     #midfielders = cull_low_scorers(midfielders, 5)
     defenders = cull_low_scorers(defenders, 3)
     midfielders = cull_low_scorers(midfielders, 2)
-    #forwards = cull_low_scorers(forwards, 3)
+    forwards = cull_low_scorers(forwards, 3)
 
     new_total_players = len(keepers + defenders + midfielders + forwards)
     print 'Retained %d total players of original %d' % (new_total_players,
                                                         total_players)
+    print 'Culling scorers below threshold'
+    # Eliminate all forwards who scored less than 80 points
+    forwards = cull_score_below(forwards, 80)
+
+    # Eliminate all midfielders who scored less than 60 points
+    midfielders = cull_score_below(midfielders, 60)
+
+    # Eliminate all defenders who scored less than 45 points
+    defenders = cull_score_below(defenders, 45)
+
+    new_total_players = len(keepers + defenders + midfielders + forwards)
+    print 'Retained %d total players' % (new_total_players)
 
     # Seed the generator with our pre-selected keepers
-    #keepers = [Player("Vorm", "SWA", 5.5, 158), Player("Federici", "RDG", 4.5, 0)]
-    keepers = [Player("Vorm", "SWA", 5.5, 158), Player("Al-Habsi", "WIG", 5.0, 138)]
+    keepers = [Player("Mignolet", "LIV", 5.5, 140), Player("Boruc", "SOU", 4.5, 63)]
 
     # Generate all combinations for each position
     c_defenders = list(nchoosek(defenders, 5))
@@ -129,26 +149,17 @@ def analyse():
         len(c_defenders), len(c_midfielders), len(c_forwards))
 
     # Constraint - require some specific players
-    #required = [Player("Van Persie", "ARS", 13.0, 269),
-    #             Player("Cisse", "NEW", 9.5, 105),
-    #             Player("Le Fondre", "RDG", 5.0, 0)]
-    #required = [Player("Aguero", "MCI", 11.5, 211),
-    #             Player("Cisse", "NEW", 9.5, 105)]
-    #required = [Player("Cisse", "NEW", 9.5, 105),
-    required = [Player("Le Fondre", "RDG", 5.0, 0),
-                Player("Tevez", "MCI", 9.2, 146)]
+    required = [
+        Player("Van Persie", "MUN", 14.0, 262),
+    ]
+    required = []
     for p in required:
         c_forwards = filter(lambda x: p in x, c_forwards)
 
-    #required = [Player("Sinclair", "SWA", 7.0, 151)]
-    required = [Player("Dyer", "SWA", 5.6, 122),
-                Player("Michu", "SWA", 6.7, 150),
-                Player("Hazard", "CHE", 9.6, 150)
-                ]
+    required = []
     for p in required:
         c_midfielders = filter(lambda x: p in x, c_midfielders)
 
-    required = [Player("Simpson", "NEW", 5.0, 117)]
     required = []
     for p in required:
         c_defenders = filter(lambda x: p in x, c_defenders)
@@ -219,11 +230,15 @@ def best_combo(h):
                     teams[player.team] += 1
                 except KeyError:
                     teams[player.team] = 1
-            too_many_players = len(filter(lambda x: x > 3, teams.values()))
-            if not too_many_players:
-                best_team = ps
-                best_team_points = ps.points
+                if teams[player.team] > 3:
+                    continue
+            #too_many_players = len(filter(lambda x: x > 3, teams.values()))
+            #if not too_many_players:
+            best_team = ps
+            best_team_points = ps.points
         #else: print '%f > %f' % (ps.cost, budget)
+    #print best_team
+    #print best_team_points
     return best_team
 
 
