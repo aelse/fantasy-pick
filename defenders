@@ -1,168 +1,161 @@
-	Evra	MUN	7.0	159
-	Kompany	MCI	7.5	145
-	Walker	TOT	6.5	140
-	Terry	CHE	7.0	138
-	Assou-Ekotto	TOT	6.5	135
-	Baines	EVE	7.0	134
-	Lescott	MCI	6.5	132
-	Vermaelen	ARS	7.0	132
-	Williams	SWA	5.0	123
-	Evans J	MUN	6.0	123
-	Clichy	MCI	6.0	119
-	Shawcross	STO	5.0	118
-	Simpson	NEW	5.0	117
-	Taylor R	NEW	5.5	117
-	Riise	FUL	5.5	117
-	Jose Enrique	LIV	6.0	116
-	Heitinga	EVE	5.5	115
-	Skrtel	LIV	6.0	113
-	Taylor	SWA	5.0	112
-	Coloccini	NEW	5.0	112
-	Ferdinand	MUN	6.0	111
-	Cole A	CHE	6.5	111
-	McAuley	WBA	5.0	110
-	Hibbert	EVE	5.5	110
-	Kaboul	TOT	5.5	108
-	Jones	MUN	6.0	108
-	Jagielka	EVE	6.0	107
-	Olsson	WBA	5.0	105
-	Koscielny	ARS	5.5	103
-	Rangel	SWA	5.0	103
-	Caldwell	WIG	5.0	103
-	Hangeland	FUL	5.0	103
-	Huth	STO	5.5	101
-	Johnson	LIV	6.5	100
-	Richards	MCI	6.0	99
-	Warnock	AVL	5.0	98
-	Boyce	WIG	5.0	97
-	Bardsley	SUN	5.0	97
-	Agger	LIV	6.5	95
-	Caulker	TOT	5.0	89
-	Figueroa	WIG	4.5	88
-	Ferdinand	QPR	4.5	88
-	Collins	WHM	5.0	87
-	Sagna	ARS	5.5	86
-	O'Shea	SUN	5.0	85
-	Zabaleta	MCI	6.0	85
-	Cahill	CHE	6.5	84
-	Martin R	NOR	4.5	83
-	Ivanovic	CHE	6.5	80
-	Alcaraz	WIG	4.5	74
-	Turner	NOR	4.5	74
-	Kolarov	MCI	6.0	73
-	Distin	EVE	5.5	71
-	Williamson	NEW	4.5	71
-	Young	QPR	4.5	69
-	Luiz	CHE	6.5	68
-	Wilson	STO	4.5	68
-	Dunne	AVL	5.0	66
-	Santon	NEW	5.0	66
-	Hutton	AVL	4.5	65
-	Gallas	TOT	5.0	63
-	Gibbs	ARS	5.5	61
-	Kelly	FUL	4.5	61
-	Ridgewell	WBA	5.0	61
-	Smalling	MUN	5.5	60
-	Brown	SUN	5.0	60
-	Mertesacker	ARS	5.0	59
-	Senderos	FUL	5.0	59
-	Rafael	MUN	5.5	58
-	Shorey	RDG	4.5	58
-	Naughton	TOT	4.5	55
-	Hughes	FUL	4.5	55
-	Cuellar	SUN	4.5	55
-	Carragher	LIV	5.5	53
-	Hill	QPR	4.5	52
-	Taylor S	NEW	5.0	52
-	Perch	NEW	4.5	49
-	Jones	WBA	4.5	48
-	Santos	ARS	5.5	47
-	Kelly	LIV	5.5	43
-	Upson	STO	4.5	41
-	Clark	AVL	4.5	41
-	Monk	SWA	4.5	40
-	Toure	MCI	5.5	40
-	Traore	QPR	5.0	37
-	Baird	FUL	4.5	37
-	Barnett	NOR	4.0	36
-	Wilkinson	STO	4.5	35
-	Onuoha	QPR	4.5	35
-	Djourou	ARS	5.0	35
-	Tierney	NOR	4.0	33
-	Stam	WIG	4.0	33
-	Kilgallon	SUN	4.5	33
-	Vidic	MUN	7.0	30
-	Lichaj	AVL	4.5	27
-	Savic	MCI	5.0	27
-	Bramble	SUN	4.5	24
-	Dawson	TOT	5.0	23
-	Ward	NOR	4.0	20
-	Coates	LIV	5.0	18
-	Tamas	WBA	4.5	15
-	Dawson	WBA	4.0	14
-	Bertrand	CHE	4.5	13
-	Baker	AVL	4.0	13
-	Jenkinson	ARS	4.5	12
-	Connolly	QPR	4.0	12
-	Ryan Bennett	NOR	4.0	10
-	Lopez	WIG	4.0	9
-	Fabio	QPR	4.5	7
-	Nelsen	QPR	4.0	6
-	Ferreira	CHE	4.5	6
-	Duffy	EVE	4.5	6
-	Jara	WBA	4.5	5
-	Flanagan	LIV	4.5	5
-	Miquel	ARS	4.5	4
-	Tate	SWA	4.0	3
-	Hutchinson	CHE	4.0	3
-	Briggs	FUL	4.0	2
-	Fryers	MUN	4.0	2
-	Bessone	SWA	4.0	1
-	Harriman	QPR	4.0	1
-	Higginbotham	STO	4.5	1
-	Smith	TOT	4.0	1
-	Gorkss	RDG	4.0	0
-	Harte	RDG	4.5	0
-	Cummings	RDG	4.0	0
-	Mills	RDG	4.0	0
-	Chalobah	CHE	4.0	0
-	Butterfield	SOU	4.0	0
-	Situ	SWA	4.0	0
-	Chico	SWA	5.0	0
-	Fox	SOU	4.5	0
-	Richardson	SOU	4.5	0
-	Seaborne	SOU	4.0	0
-	Hooiveld	SOU	4.5	0
-	Reeves	SOU	4.0	0
-	Fonte	SOU	4.0	0
-	Mustafi	EVE	4.0	0
-	Williams	AVL	4.0	0
-	Vertonghen	TOT	6.5	0
-	Whittaker	NOR	4.5	0
-	Hurst	WBA	4.0	0
-	Halliche	FUL	4.0	0
-	Rekik	MCI	4.5	0
-	Ness	STO	4.0	0
-	Squillaci	ARS	4.5	0
-	Riether	FUL	5.0	0
-	Wilson	LIV	4.5	0
-	O'Brien	WHM	4.0	0
-	Reid	WHM	4.5	0
-	Demel	WHM	4.0	0
-	Potts	WHM	4.0	0
-	Tomkins	WHM	4.5	0
-	McCartney	WHM	4.0	0
-	Robinson	LIV	4.5	0
-	Tavernier	NEW	4.0	0
-	Stevens	AVL	4.0	0
-	Laing	SUN	4.0	0
-	Lowton	AVL	4.5	0
-	Pearce	RDG	4.5	0
-	Clyne	SOU	4.0	0
-	Gunter	RDG	4.0	0
-	Mariappa	RDG	4.0	0
-	Good	NEW	4.0	0
-	Vlaar	AVL	5.0	0
-	Ramis	WIG	4.5	0
-	Cameron	STO	4.5	0
-	Keane M	MUN	4.5	0
+Baines	EVE	7.5	177
+Evra	MUN	6.5	152
+Ivanovic	CHE	6.5	143
+Johnson	LIV	6.0	142
+Vertonghen	TOT	7.0	136
+Mertesacker	ARS	5.5	135
+Agger	LIV	6.0	134
+Jose Enrique	LIV	6.0	134
+Jagielka	EVE	5.5	126
+Zabaleta	MCI	6.0	124
+O'Brien	WHU	5.5	123
+Shawcross	STK	5.5	123
+Luiz	CHE	6.5	122
+Bassong	NOR	5.0	121
+Cole	CHE	6.5	121
+O'Shea	SUN	5.0	115
+Walker	TOT	6.0	114
+McAuley	WBA	5.5	113
+Huth	STK	5.5	112
+Rangel	SWA	5.5	111
+Clichy	MCI	6.0	111
+Rafael	MUN	6.0	110
+Distin	EVE	5.0	109
+Riether	FUL	5.0	109
+Reid	WHU	5.0	103
+Garrido	NOR	4.5	103
+Williams	SWA	5.0	100
+Azpilicueta	CHE	6.0	100
+Davies	SWA	5.0	99
+Evans	MUN	5.5	99
+Martin	NOR	5.0	96
+Riise	FUL	5.0	95
+Cahill	CHE	6.0	94
+Lowton	AVL	5.0	93
+Gibbs	ARS	5.5	93
+Ferdinand	MUN	5.5	92
+Cameron	STK	5.0	92
+Kompany	MCI	6.5	91
+Demel	WHU	5.0	91
+Collins	WHU	4.5	90
+Clyne	SOU	4.5	89
+Skrtel	LIV	5.5	88
+Koscielny	ARS	5.5	88
+Olsson	WBA	5.0	87
+Turner	NOR	4.5	86
+Ridgewell	WBA	5.0	85
+Sagna	ARS	5.5	83
+Nastasic	MCI	5.5	82
+Cuellar	SUN	4.5	79
+Lescott	MCI	5.5	77
+Hangeland	FUL	5.0	75
+Coleman	EVE	5.0	74
+Yoshida	SOU	4.5	74
+Vidic	MUN	6.0	73
+Santon	NEW	5.0	71
+Chico	SWA	5.0	71
+Vermaelen	ARS	5.5	70
+Dawson	TOT	5.0	70
+Fonte	SOU	4.5	68
+Terry	CHE	6.0	66
+Caulker	TOT	5.0	66
+Shaw	SOU	4.5	66
+Figueroa	HUL	4.5	65
+Clark	AVL	4.5	63
+Jones	WBA	5.0	61
+Vlaar	AVL	4.5	58
+Kolarov	MCI	5.5	55
+Coloccini	NEW	5.0	51
+Jenkinson	ARS	4.5	51
+Monreal	ARS	5.5	50
+Tomkins	WHU	5.0	50
+Hughes	FUL	4.5	50
+Naughton	TOT	4.5	48
+Heitinga	EVE	5.0	48
+Senderos	FUL	4.5	47
+Smalling	MUN	5.5	47
+Bertrand	CHE	5.0	47
+Wilkinson	STK	4.5	47
+Wilson	STK	4.5	46
+Hooiveld	SOU	4.5	46
+Wisdom	LIV	4.5	45
+Assou-Ekotto	TOT	5.5	44
+Toure	LIV	5.0	44
+Taylor S	NEW	4.5	44
+Baker	AVL	4.0	42
+Whittaker	NOR	4.0	39
+Tiendalli	SWA	4.5	37
+Buttner	MUN	5.0	37
+Jones	MUN	6.0	37
+Williamson	NEW	4.5	35
+McCartney	WHU	4.0	32
+Richards	MCI	5.5	31
+Yanga-Mbiwa	NEW	4.5	29
+Fox	SOU	4.5	29
+Ryan Bennett	NOR	4.0	28
+Maicon	MCI	5.0	28
+Bennett	AVL	4.5	28
+Bardsley	SUN	4.5	26
+Debuchy	NEW	5.0	24
+Monk	SWA	4.5	22
+Alcaraz	EVE	4.5	20
+Popov	WBA	4.5	19
+Taylor	SWA	4.5	17
+Barnett	NOR	4.0	16
+Manolev	FUL	4.0	16
+Santos	ARS	5.0	16
+Stevens	AVL	4.0	12
+Hibbert	EVE	4.5	12
+Tamas	WBA	4.5	10
+Briggs	FUL	4.0	9
+Coates	LIV	4.5	8
+Kelly	LIV	4.5	6
+Rekik	MCI	4.0	6
+Spence	WHU	4.0	4
+Ake	CHE	4.5	4
+Haidara	NEW	4.5	3
+Dawson	WBA	4.0	2
+Tate	SWA	4.0	2
+Mangane	SUN	4.0	2
+Potts	WHU	4.0	2
+Bartley	SWA	4.0	1
+Tavernier	NEW	4.0	1
+Kaboul	TOT	5.0	1
+Taylor R	NEW	5.0	1
+Coady	LIV	4.0	1
+Duffy	EVE	4.0	1
+Diakité	SUN	4.5	0
+Roberge	SUN	4.5	0
+Ramage	CRY	4.0	0
+Faye	HUL	4.0	0
+Chester	HUL	4.0	0
+Rosenior	HUL	4.0	0
+Delaney	CRY	4.5	0
+Moxey	CRY	4.0	0
+Amorebieta	FUL	4.5	0
+Blake	CRY	4.0	0
+Varela	MUN	4.5	0
+Amat	SWA	5.0	0
+Ward	CRY	4.0	0
+Lovren	SOU	5.0	0
+Ayala	NOR	4.0	0
+Davies	HUL	4.5	0
+Nugent	CAR	4.0	0
+Connolly	CAR	4.5	0
+Turner	CAR	4.0	0
+Rat	WHU	5.0	0
+Hudson	CAR	4.5	0
+Taylor	CAR	4.5	0
+McNaughton	CAR	4.0	0
+Dudgeon	HUL	4.0	0
+Luna	AVL	4.5	0
+McShane	HUL	4.0	0
+Okore	AVL	4.5	0
+Hobbs	HUL	4.0	0
+Muniesa	STK	5.0	0
+Olsson	NOR	4.5	0
+Parr	CRY	4.0	0
+Brown	SUN	4.5	0
+Gabbidon	CRY	4.0	0
+Bruce	HUL	4.0	0
+Pieters	STK	5.0	0
